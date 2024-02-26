@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Detail</title>
+    <span th:replace="~{home :: bootstrapImports}"></span>
+</head>
+<body>
+<span th:replace="~{home :: navbar}"></span>
+<main class="container">
+    <h1>Detail</h1>
+    <hr>
+    <div class="col d-flex justify-content-center">
+        <div th:object="${student}">
+            <p>Nom : <span th:text="*{firstName}"></span></p>
+            <p>Prenom : <span th:text="*{lastName}"></span></p>
+            <p>Âge : <span th:text="*{age}"></span></p>
+            <p>Email : <span th:text="*{email}"></span></p>
+        </div>
+    </div>
+    <hr>
+    <a th:href="@{/update(studentId=${student.id})}" class="btn btn-info btn-sm">Modifier</a>
+    <a th:href="@{/delete(studentId=${student.id})}" class="btn btn-danger btn-sm">Supprimer</a>
+
+</main>
+
+<span th:replace="~{home :: footer}"></span>
+</body>
+</html>
